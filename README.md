@@ -1,146 +1,129 @@
-#YelpCamp-final-Bootstrap4
+# YelpCamp-final-Bootstrap4
 
-##Initial Setup
-    *Add Landing Page
-    *Add Campgrounds Page that lists all campgrounds
+## Initial Setup
 
-Each Campground has:
-    Name
-    Image
-##Layout and Basic Styling
+* Add Landing Page
+* Add Campgrounds Page that lists all campgrounds
+* Each Campground has Name and Image
 
-Create our header and footer partials
-Add in Bootstrap
-##Creating New Campgrounds
+## Layout and Basic Styling
 
-Setup new campground POST route
-Add in body-parser
-Setup route to show form
-Add basic unstyled form
-##Style the campgrounds page
+* Create our header and footer partials
+* Add in Bootstrap
 
-Add a better header/title
-Make campgrounds display in a grid
-##Style the Navbar and Form
+## Creating New Campgrounds
 
-Add a navbar to all templates
-Style the new campground form
-##Add Mongoose
+* Setup new campground POST route
+* Add in body-parser
+* Setup route to show form
+* Add basic unstyled form
 
-Install and configure Mongoose
-Setup campground model
-Use campground model inside of our routes
-##Show Page
+## Style the campgrounds page
 
-Review the RESTful routes we've seen so far
-Add description to our campground model
-Show db.collection.drop()
-Add a show route/template
-##Refactor Mongoose Code
+* Add a better header/title
+* Make campgrounds display in a grid
 
-Create a models directory
-Use module.exports
-Require everything correctly!
-##Add Seeds File
+## Style the Navbar and Form
 
-Add a seeds.js file
-Run the seeds file every time the server starts
-##Add the Comment model!
+* Add a navbar to all templates
+* Style the new campground form
 
-Make our errors go away!
-Display comments on campground show page
-##Comment New/Create
+## Add Mongoose
 
-Discuss nested routes
-Add the comment new and create routes
-Add the new comment form
-##Style Show Page
+* Install and configure Mongoose
+* Setup campground model
+* Use campground model inside of our routes
 
-Add sidebar to show page
-Display comments nicely
-##Finish Styling Show Page
+## Show Page
 
-Add public directory
-Add custom stylesheet
-##Auth Pt. 1 - Add User Model
+* Review the RESTful routes we've seen so far
+* Add description to our campground model
+* Show db.collection.drop()
+* Add a show route/template
 
-Install all packages needed for auth
-Define User model
-##Auth Pt. 2 - Register
+## Refactor Mongoose Code
 
-Configure Passport
-Add register routes
-Add register template
-##Auth Pt. 3 - Login
+* Create a models directory
+* Use module.exports
+* Require everything correctly!
 
-Add login routes
-Add login template
-##Auth Pt. 4 - Logout/Navbar
+## Add Seeds File
 
-Add logout route
-Prevent user from adding a comment if not signed in
-Add links to navbar
-##Auth Pt. 5 - Show/Hide Links
+* Add a seeds.js file
+* Run the seeds file every time the server starts
 
-Show/hide auth links in navbar
-##Refactor The Routes
+## Add the Comment model!
 
-Use Express router to reoragnize all routes
-##Users + Comments
+* Make our errors go away!
+* Display comments on campground show page
 
-Associate users and comments
-Save author's name to a comment automatically
-##Users + Campgrounds
+## Comment New/Create
 
-Prevent an unauthenticated user from creating a campground
-Save username+id to newly created campground
-TODOS
+* Discuss nested routes
+* Add the comment new and create routes
+* Add the new comment form
 
-Add "back" redirect to login
+## Style Show Page
 
-Add method-override
+* Add sidebar to show page
+* Display comments nicely
+* Add public directory
+* Add custom stylesheet
 
-BOOTSTRAP NAV COLLPASE JS
+## Auth Pt. 1 - Add User Model
 
-Flash Messages
+* Install all packages needed for auth
+* Define User model
 
-Refactor container div to header
+## Auth Pt. 2 - Register
 
-Show/hide delete and update buttons
+* Configure Passport
+* Add register routes
+* Add register template
 
-style login/register forms
+## Auth Pt. 3 - Login
 
-Random Background Landing Page
+* Add login routes
+* Add login template
 
-Refactor middleware
+## Auth Pt. 4 - Logout/Navbar
 
-change styling in show template - comment delete/update
+* Add logout route
+* Prevent user from adding a comment if not signed in
+* Add links to navbar
 
-UPATE/DELETE CAMPGROUND
+## Auth Pt. 5 - Show/Hide Links
 
-BOOTSTRAP NAV COLLPASE JS
+* Show/hide auth links in navbar
 
-Flash Messages
+## Refactor The Routes
 
-Refactor container div to header
+* Use Express router to reoragnize all routes
 
-Show/hide delete and update buttons
+## Users + Comments
 
-style login/register forms
+* Associate users and comments
+* Save author's name to a comment automatically
 
-Random Background Landing Page
+## Users + Campgrounds
 
-Refactor middleware
+* Prevent an unauthenticated user from creating a campground
+* Save username+id to newly created campground
 
-change styling in show template - comment delete/update
+## Tidy Up
 
-UPDATE/DELETE CAMPGROUND
-
-RESTFUL ROUTES
-
-name url verb desc.
-INDEX /dogs GET Display a list of all dogs NEW /dogs/new GET Displays form to make a new dog CREATE /dogs POST Add new dog to DB SHOW /dogs/:id GET Shows info about one dog
-
-INDEX /campgrounds NEW /campgrounds/new CREATE /campgrounds SHOW /campgrounds/:id
-
-NEW campgrounds/:id/comments/new GET CREATE campgrounds/:id/comments POST
+* Add "back" redirect to login
+* Add method-override
+* BOOTSTRAP NAV COLLPASE JS
+* Flash Messages
+* Refactor container div to header
+* Show/hide delete and update buttons
+* style login/register forms
+* Random Background Landing Page
+* Refactor middleware
+* change styling in show template - comment delete/update
+* UPATE/DELETE CAMPGROUND
+* BOOTSTRAP NAV COLLPASE JS
+* RESTFUL ROUTES
+* INDEX /campgrounds NEW /campgrounds/new CREATE /campgrounds SHOW /campgrounds/:id
+* NEW campgrounds/:id/comments/new GET CREATE campgrounds/:id/comments POST
