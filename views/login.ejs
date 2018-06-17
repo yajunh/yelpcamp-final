@@ -1,21 +1,20 @@
 <% include ./partials/header %>
 <div class="row">
-    <h1 style="text-align: center">Login Page</h1>
-    <div style="width: 30%; margin: 25px auto;">
-        <form action="/login" method="POST">
-            <div class="form-group">
-                <label for="username">Username</label>
-                <input class="form-control" type="text" name="username" placeholder="username">
-            </div>
-            <div class="form-group">
-                <label for="password">Password</label>
-                <input class="form-control" type="password" name="password" placeholder="password">
-            </div>
-            <div class="form-group">
-                <button class="btn btn-lg btn-primary btn-block">Login</button>
-            </div>
+    <div class="col-md-12">
+        <form class="form-signin" action="/login" method="POST">
+            <h1 class="h3 mb-3 font-weight-normal">Login</h1>
+            
+            <label for="inputUsername" class="sr-only">Username</label>
+            <input class="form-control" type="text" id="inputUsername" name="username" placeholder="Username" required autofocus>
+              
+            <label for="inputPassword" class="sr-only">Password</label>
+            <input class="form-control" type="password" id="inputPassword" name="password" placeholder="Password" required>
+             
+            <button class="btn btn-lg btn-primary btn-block" type="submit">Login</button>
         </form>
-        <a href="/campgrounds">Go Back</a>
+        <div class="form-signin">
+            <a href="/campgrounds">Go Back</a>
+        </div>
     </div>
 </div>
 

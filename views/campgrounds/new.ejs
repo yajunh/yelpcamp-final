@@ -1,10 +1,12 @@
 <% include ../partials/header %>
 
 <div class="container">
-    <div class="row">
-        <h1 style="text-align: center">Add a New Campground</h1>
+    <div class="row justify-content-center">
+        <div class="col-md-12 text-center">
+            <h1>Add a New Campground</h1> 
+        </div>
         
-        <div style="width: 30%; margin: 25px auto;">
+        <div class="col-sm-12 col-md-6 col-lg-4">
             <form action="/campgrounds" method="POST" enctype="multipart/form-data">
                 <div class="form-group">
                     <label for="name">Name</label>
