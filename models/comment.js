@@ -10,6 +10,12 @@ var commentSchema = new mongoose.Schema({
             ref: "User"
         },
         username: String
+    },
+    campground: {
+            id: {   
+                    type: mongoose.Schema.Types.ObjectId,
+                    ref: "campground"
+                }
     }
 });
 

@@ -3,20 +3,30 @@
 <div class="row">
     <div class="col-md-4">
         <h1><%= user.firstName + " " + user.lastName %></h1>
-        <div class="thumbnail">
+        <div class="thumbnail text-center">
             <img alt="user profile image" src="<%= user.avatar %>">
             <div class="caption"><a href="mailto: <%= user.name %>"><%= user.email %></a></div>
+            <div class="caption"><%= user.biography %></div>
+            <div class="caption"><i class="fas fa-map-marker-alt"></i> <%= user.location %></div>
         </div>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-            Amet cursus sit amet dictum sit amet justo donec. Elementum eu facilisis sed odio. Facilisis volutpat est velit egestas dui id ornare arcu odio. 
-            Consequat id porta nibh venenatis cras sed felis. Risus sed vulputate odio ut enim blandit volutpat. Morbi tristique senectus et netus et malesuada fames ac. 
-            Sem integer vitae justo eget magna fermentum iaculis eu. Donec pretium vulputate sapien nec sagittis.
+        <div class="text-center">
+            <form action="/settings/profile" method="GET">
+                <button class="btn btn-light btn-lg">Edit profile</button>
+            </form>
         </div>
+    </div>
     <div class="col-md-8">
         <h3><%= user.username %>'s campgrounds</h3>
         <ul>
-            <% campgrounds.forEach(function(campground) {%>
+            <% campgrounds.forEach(function(campground) { %>
                 <li><a href="/campgrounds/<%= campground.id %>"><%= campground.name %></a></li>
+            <% }); %>
+        </ul>
+        
+        <h3><%= user.username %>'s comments</h3>
+        <ul>
+            <% comments.forEach(function(comment) { %>
+                <li><a href="/campgrounds/<%= comment.campground.id %>"><%= comment.text %></a></li>
             <% }); %>
         </ul>
     </div>

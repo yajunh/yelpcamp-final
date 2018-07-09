@@ -8,6 +8,10 @@
   padding: 0;
 }
 
+.thumbnail .caption {
+  margin: 10px auto;
+}
+
 .thumbnail .caption-full {
   padding: 9px;
 }
@@ -16,7 +20,7 @@
   display: inline;
 }
 
-/*Google Map*/
+/*Google Map Styles*/
 #map {
   height: 400px;
   width: 100%;
@@ -50,4 +54,9 @@
   margin-bottom: 10px;
   border-top-left-radius: 0;
   border-top-right-radius: 0;
+}
+
+/*Campground home page card styles*/
+.card-img-top {
+  max-height: 147px;
 }

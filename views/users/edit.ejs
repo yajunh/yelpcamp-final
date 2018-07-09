@@ -1,0 +1,25 @@
+<% include ../partials/header %>
+
+<div class="row">
+    <div class="col-md-4">
+        <h1><%= user.firstName + " " + user.lastName %></h1>
+        <div class="thumbnail">
+            <img alt="user profile image" src="<%= user.avatar %>">
+            <div class="caption"><a href="mailto: <%= user.name %>"><%= user.email %></a></div>
+        </div>
+    </div>
+    <div class="col-md-8">
+        <form action="/settings/profile?_method=PUT" method="POST">
+            <div class="form-group">
+                <h1><%= user.username %></h1>
+                <input class="form-control" type="text" name="user[biography]" placeholder="Biography" value="<%= user.biography %>">
+                <input class="form-control" type="text" name="user[location]" placeholder="Location" value="<%= user.location %>">
+            </div>
+            <div class="form-group">
+                <button class="btn btn-success btn-lg btn-block">Update profile</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<% include ../partials/footer %>

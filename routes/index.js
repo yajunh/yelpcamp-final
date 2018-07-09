@@ -3,9 +3,11 @@ var express     = require("express"),
     passport    = require("passport"),
     User        = require("../models/user"),
     Campground  = require("../models/campground"),
+    Comment     = require("../models/comment"),
     async       = require("async"),
     nodemailer  = require("nodemailer"),
     crypto      = require("crypto");
+var middleware = require("../middleware");
 
 //root route
 router.get("/", function(req, res) {
@@ -189,8 +191,8 @@ router.post("/reset/:token", function(req, res) {
 });
 
 //User Profile
-router.get("/users/:id", function(req, res) {
-    User.findById(req.params.id, function(err, foundUser) {
+router.get("/profile/:username", function(req, res) {
+    User.findOne().where("username").equals(req.params.username).exec(function(err, foundUser) {
         if (err) {
             req.flash("error", "Something went wrong");
             res.redirect("/");
@@ -200,9 +202,37 @@ router.get("/users/:id", function(req, res) {
                     req.flash("error", "Something went wrong");
                     res.redirect("/");
                 } else {
-                    res.render("users/show", {user: foundUser, campgrounds: campgrounds});
+                    Comment.find().where("author.id").equals(foundUser._id).exec(function(err, comments) {
+                        if(err) {
+                            console.log(err);
+                        } else {
+                            res.render("users/show", {user: foundUser, campgrounds: campgrounds, comments: comments});
+                        }
+                    });
                 }
             });
+        }
+    });
+});
+
+//User profile edit route
+router.get("/settings/profile", middleware.isLoggedIn, function(req, res) {
+    User.findById(req.user._id, function(err, user) {
+        if(err) {
+            console.log(err);
+        } else {
+            res.render("users/edit", {user: user});
+        }
+    });
+});
+
+//User profile update route
+router.put("/settings/profile", middleware.isLoggedIn, function(req, res) {
+    User.findByIdAndUpdate(req.user._id, req.body.user, function(err, user) {
+        if (err) {
+            res.redirect("back");
+        } else {
+            res.redirect("/profile/" + user.username);
         }
     });
 });

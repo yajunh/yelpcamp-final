@@ -38,6 +38,8 @@ router.post("/", middleware.isLoggedIn, function(req, res) {
                     //add username and id to a comment
                     comment.author.id = req.user._id;
                     comment.author.username = req.user.username;
+                    //link comment to a campground id
+                    comment.campground.id = campground._id;
                     //save comments
                     comment.save();
                     //connect new comment to campground
@@ -94,8 +96,5 @@ router.delete("/:comment_id", middleware.checkCommentOwnership, function(req, re
         }
     });
 });
-
-
-
 
 module.exports = router;
