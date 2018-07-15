@@ -22,21 +22,31 @@
             </p>
         </div>
     </header>
+    
+    <nav class="navbar d-flex justify-content-end">
+        <select id="dropdown">
+            <option selected>Sort By...</option>
+            <option value="newest" <% if (sorting == "newest") { %>selected<% } %>>Newest First</option>
+            <option value="oldest" <% if (sorting == "oldest") { %>selected<% } %>>Oldest First</option>
+            <option value="price-asce" <% if (sorting == "price-asce") { %>selected<% } %>>Price Low to High</option>
+            <option value="price-desc" <% if (sorting == "price-desc") { %>selected<% } %>>Price High to Low</option>
+        </select>
+    </nav>
 
     <div class="row text-center">
         <div class="col-md-12">
             <% if (noMatch !== null) { %>
-                <h3><%= noMatch%></h3>
+                <h3><%= noMatch %></h3>
             <% } %>
         </div>
         <% campgrounds.forEach(function(campground) { %>
             <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
                 <div class="card">
-                    <img class="card-img-top" src="<%= campground.image %>" alt="<%= campground.name %>">
+                    <img class="card-img-top index-img" src="<%= campground.image %>" alt="<%= campground.name %>">
                     <div class="card-body">
                         <h5 class="card-title"><%= campground.name %></h5>
                     </div>
-                    <div class="card-body">
+                    <div class="card-body info-btn">
                         <p class="float-left"><em>£<%= campground.price %>/night</em></p>
                         <a href="/campgrounds/<%= campground._id %>" class="btn btn-primary btn-sm float-right">More Info</a>
                     </div>

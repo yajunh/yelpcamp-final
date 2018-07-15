@@ -57,6 +57,6 @@
 }
 
 /*Campground home page card styles*/
-.card-img-top {
-  max-height: 147px;
+.index-img {
+  height: 153px;
 }

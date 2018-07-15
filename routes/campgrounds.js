@@ -46,12 +46,25 @@ router.get("/", function(req, res) {
     var noMatch = null;
     //if no search then show all campgrounds
     if (!req.query.search) {
-         //Get all campgrounds from DB
-        Campground.find({}, function(err, allCampgrounds) {
+        
+        //capture the sort query and set sorting type
+        var sorting;
+        if(req.query.sort === "newest") {
+            sorting = {"createdAt": -1};
+        } else if(req.query.sort === "oldest") {
+            sorting = {"createdAt": 1};
+        } else if(req.query.sort === "price-asce") {
+            sorting = {"price": 1};
+        } else if(req.query.sort === "price-desc") {
+            sorting = {"price": -1};
+        }
+        
+        //Get all campgrounds from DB
+        Campground.find({}).sort(sorting).exec(function(err, allCampgrounds) {
             if (err) {
                 console.log(err);
             } else {
-                res.render("campgrounds/index", {campgrounds: allCampgrounds, page: "campgrounds", noMatch: noMatch});  
+                res.render("campgrounds/index", {campgrounds: allCampgrounds, page: "campgrounds", noMatch: noMatch, sorting: req.query.sort});  
             }
         });
     } else {
